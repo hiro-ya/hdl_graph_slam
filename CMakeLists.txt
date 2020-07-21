@@ -122,3 +122,20 @@ target_link_libraries(hdl_graph_slam_nodelet
 )
 add_dependencies(hdl_graph_slam_nodelet ${PROJECT_NAME}_gencpp)
 
+install(
+  TARGETS
+    hdl_graph_slam_nodelet
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  PATTERN ".svn" EXCLUDE
+)
+
+install(DIRECTORY include/g2o/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}/../g2o
+  PATTERN ".svn" EXCLUDE
+)
